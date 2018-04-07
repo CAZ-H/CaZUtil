@@ -7,12 +7,14 @@ class NavButton extends Component {
 
     this.props = {
       onClick: props.onClick,
-      active: props.active
+      active: props.active,
     }
   }
 
   render() {
-    let classes = "nav-block nav-button" + (this.props.active ? " nav-button-active" : "");
+    let classes = "nav-block nav-button" +
+      (this.props.active ? " nav-button-active" : "");
+
     return (
       <a className={classes} onClick={this.props.onClick}>
         { this.props.children }

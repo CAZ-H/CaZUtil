@@ -35,7 +35,7 @@ class NavBar extends Component {
         <NavButton
           onClick={this.props.gotoMarkovPage}
           active={this.props.currentPage===MARKOV}>
-          Temperature
+          Markov
         </NavButton>
       </div>
     );

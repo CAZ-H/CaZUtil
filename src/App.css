@@ -11,9 +11,10 @@
 
 .nav-block {
   text-decoration: none;
+  user-select: none;
   text-align: center;
   height: 100%;
-  width: 100px;
+  min-width: 100px;
   line-height: 250%;
   display: inline-block;
   border: 0px;
@@ -32,18 +33,13 @@
   box-shadow: 0px 10px #3f3f3f;
   cursor: pointer;
 }
-.nav-button:active {
-  transition: 0.05s;
-  background-color: #555555;
-  box-shadow: 0px 6px #333333;
-  transform: translateY(4px);
-}
-
 .nav-button-active {
   transition: 0.4s;
+  cursor: default;
   color: #ffab78;
   background-color: #c56636;
-  box-shadow: 0px 10px #823e25;
+  transform: translateY(4px);
+  box-shadow: 0px 6px #823e25;
 }
 
 .page-container {

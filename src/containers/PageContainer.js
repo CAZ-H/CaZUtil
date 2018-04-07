@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Page from './../components/Page.js';
 import NavBar from './../components/NavBar.js';
-import {HOME, TEMPERATURE} from './../constants/Pages.js';
+import {HOME, TEMPERATURE, MARKOV} from './../constants/Pages.js';
 
 class PageContainer extends Component {
 
@@ -19,10 +19,24 @@ class PageContainer extends Component {
     });
   }
 
+  gotoMarkovPage() {
+    this.setState({
+      currentPage: MARKOV
+    });
+  }
+
   gotoHomePage() {
     this.setState({
       currentPage: HOME
     });
+  }
+
+  renderMarkovPage() {
+    return (
+      <Page>
+        Todo: Markov text generator
+      </Page>
+    );
   }
 
   renderTemperaturePage() {
@@ -44,6 +58,9 @@ class PageContainer extends Component {
   decideRender() {
     let page;
     switch(this.state.currentPage) {
+      case MARKOV:
+        page = this.renderMarkovPage();
+        break;
       case TEMPERATURE:
         page = this.renderTemperaturePage();
         break;
@@ -64,7 +81,9 @@ class PageContainer extends Component {
       <div className="page-container">
         <NavBar
           gotoHomePage={this.gotoHomePage.bind(this)}
-          gotoTemperaturePage={this.gotoTemperaturePage.bind(this)} />
+          gotoTemperaturePage={this.gotoTemperaturePage.bind(this)}
+          gotoMarkovPage={this.gotoMarkovPage.bind(this)}
+          currentPage={this.state.currentPage} />
         { this.decideRender() }
       </div>
     );

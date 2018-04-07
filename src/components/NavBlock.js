@@ -4,9 +4,9 @@ class NavBlock extends Component {
 
   render() {
     return (
-      <button className="nav-block">
+      <div className="nav-block">
         { this.props.children }
-      </button>
+      </div>
     );
   }
 

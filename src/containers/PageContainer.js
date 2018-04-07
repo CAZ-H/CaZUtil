@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Page from '../components/Page.js';
-import NavBar from '../components/NavBar.js';
+import Page from './../components/Page.js';
+import NavBar from './../components/NavBar.js';
+import {HOME, TEMPERATURE} from './../constants/Pages.js';
 
 class PageContainer extends Component {
 
@@ -8,33 +9,67 @@ class PageContainer extends Component {
     super(props);
 
     this.state = {
-      currentPage: props.page;
-    }
+      currentPage: HOME
+    };
+  }
+
+  gotoTemperaturePage() {
+    this.setState({
+      currentPage: TEMPERATURE
+    });
+  }
+
+  gotoHomePage() {
+    this.setState({
+      currentPage: HOME
+    });
+  }
+
+  renderTemperaturePage() {
+    return (
+      <Page>
+        Todo: Temperature calculator
+      </Page>
+    );
   }
 
   renderHomePage() {
-    return {
-      <Page />
-    }
+    return (
+      <Page>
+        Todo: Fancy homepage shenanigans
+      </Page>
+    );
   }
 
   decideRender() {
     let page;
     switch(this.state.currentPage) {
-      case 'home':
+      case TEMPERATURE:
+        page = this.renderTemperaturePage();
+        break;
+      case HOME:
       default:
-      page = <div className="page-content"> {renderHomePage()} </div>;
+        page = this.renderHomePage();
     }
-    return page;
+
+    return (
+      <div className="page-content">
+        { page }
+      </div>
+    );
   }
 
   render() {
     return (
       <div className="page-container">
-        <NavBar />
-        decideRender();
+        <NavBar
+          gotoHomePage={this.gotoHomePage.bind(this)}
+          gotoTemperaturePage={this.gotoTemperaturePage.bind(this)} />
+        { this.decideRender() }
       </div>
     );
   }
 
 }
+
+export default PageContainer;

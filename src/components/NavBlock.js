@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-class Page extends Component {
+class NavBlock extends Component {
 
   render() {
     return (
-      <div className="page-body">
+      <button className="nav-block">
         { this.props.children }
-      </div>
+      </button>
     );
   }
 
 }
 
-export default Page;
+export default NavBlock;

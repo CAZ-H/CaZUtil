@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PageContainer from './containers/PageContainer';
 import { Switch } from 'react-router-dom'
 
 import Routes from './constants/Routes'

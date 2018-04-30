@@ -7,12 +7,12 @@ import TemperatureContainer from '../containers/TemperatureContainer'
 export default [
   <Route
     key={0}
-    exact path="/"
+    exact path={process.env.PUBLIC_URL + "/"}
     component={HomeContainer}
   />,
   <Route
     key={1}
-    path="/temperature"
+    path={process.env.PUBLIC_URL + "/temperature"}
     component={TemperatureContainer}
   />
 ]

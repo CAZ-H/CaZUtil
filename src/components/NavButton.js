@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class NavButton extends Component {
 
   constructor(props) {
     super(props);
-
-    this.props = {
-      onClick: props.onClick,
-      active: props.active,
-    }
   }
 
   render() {
@@ -17,7 +13,7 @@ class NavButton extends Component {
 
     return (
       <a className={classes} onClick={this.props.onClick}>
-        { this.props.children }
+        { this.props.label }
       </a>
     );
   }

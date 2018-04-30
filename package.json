@@ -4,6 +4,7 @@
   "homepage": "http://CAZ-H.github.io/CaZUtil",
   "private": true,
   "dependencies": {
+    "corvid-lib": "^1.1.0",
     "gh-pages": "^1.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

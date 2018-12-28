@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class HomeContainer extends Component {
+class Gifcities extends Component {
 
   constructor(props) {
     super(props);
@@ -9,11 +9,11 @@ class HomeContainer extends Component {
   render() {
     return (
       <div>
-        Home
+        Gifcities
       </div>
     );
   }
 
 }
 
-export default HomeContainer;
+export default Gifcities;

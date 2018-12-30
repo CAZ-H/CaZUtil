@@ -1,25 +1,67 @@
 .page.gifcities {
     .search {
         position: sticky;
-        top: 0;
-        background-color: rgba(0,0,0, 0.4);
-        width: fit-content;
-        z-index: 5;
+        width: 448px;
         border-radius: 4px;
+        top: 0;
+        z-index: 5;
+        background-color: rgba(0,0,0, 0.4);
     }
 
     .content {
-        display: flex;
-        flex-wrap: wrap;
-        min-height: 200px;
+        line-height: 0;
+        column-gap: 4px;
+        column-count: 5;
+        min-height: 100vh;
 
-        .spinner, .no-results {
-            margin: auto;
+        @media (max-width: 1200px) {
+            column-count: 4;
+        }
+        @media (max-width: 1000px) {
+            column-count: 3;
+        }
+        @media (max-width: 800px) {
+            column-count: 2;
+        }
+        @media (max-width: 400px) {
+            column-count: 1;
+        }
+
+        .gifcard {
+            width: 100%;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+
+            img {
+                max-width: 75%;
+            }
+        }
+
+        .spinner {
+            position: absolute;
+            width: 0;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+        }
+
+        .no-results {
+            position: absolute;
+            text-align: center;
+            width: 500px;
+            height: 100%;
+            left: calc(50% - 250px);
+            top: 50%;
         }
     }
 
     .paginator {
         text-align: center;
+
+        .page-display {
+            padding: 0 8px;
+        }
 
         > * {
             display: inline-block;

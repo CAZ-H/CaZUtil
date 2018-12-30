@@ -1,5 +1,6 @@
 import React from "react";
 import {withStyles} from "@material-ui/core";
+import classnames from 'classnames';
 
 import Card from "@material-ui/core/Card/Card";
 import CardContent from "@material-ui/core/CardContent/CardContent";
@@ -18,13 +19,16 @@ const gifStyles = theme => ({
     }
 });
 
-const GifCard = ({gif, text, classes,...props}) => (
-    <Card className={classes.root} {...props}>
-        <CardContent>
-            <Typography color="textSecondary">{text}</Typography>
-            <img src={`https://web.archive.org/web/${gif}`}/>
-        </CardContent>
-    </Card>
-);
+const GifCard = ({gif, text, classes, className,...props}) => {
+    const addClasses = classnames(className, classes.root);
+    return (
+        <Card className={addClasses} {...props}>
+            <CardContent>
+                <Typography color="textSecondary">{text}</Typography>
+                <img src={`https://web.archive.org/web/${gif}`}/>
+            </CardContent>
+        </Card>
+    );
+};
 
 export default withStyles(gifStyles)(GifCard);

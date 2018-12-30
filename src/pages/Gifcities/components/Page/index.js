@@ -18,12 +18,13 @@ import Spinner from 'common/components/Spinner';
 
 import './index.scss';
 
-const GIFS_PER_PAGE = 20;
+const GIFS_PER_PAGE = 30;
 
 const styles = theme => ({
     search: {
         padding: '8px 16px',
-        width: '400px'
+        width: '400px',
+        height: '48px'
     },
     errorSearch: {
         'color': theme.palette.error.main,
@@ -88,6 +89,7 @@ class Gifcities extends Component {
                 )).then((content) => {
                     this.setState({
                         content: content,
+                        page: 0,
                         totalPages: Math.floor(content.length / GIFS_PER_PAGE),
                         error: false,
                         loading: false
@@ -113,7 +115,7 @@ class Gifcities extends Component {
             if (!data) break;
 
             renderedContent.push(
-                <GifCard key={i} gif={data.gif} text={data.url_text} />
+                <GifCard key={i} gif={data.gif} text={data.url_text} className='gifcard' />
             )
         }
 
@@ -129,7 +131,7 @@ class Gifcities extends Component {
                 <IconButton onClick={() => {this.setState({page: Math.max(0, this.state.page - 1)})}}>
                     <BackIcon/>
                 </IconButton>
-                <Typography>
+                <Typography className='page-display'>
                     {this.state.page + 1} / {this.state.totalPages + 1}
                 </Typography>
                 <IconButton onClick={() => {this.setState({page: Math.min(this.state.totalPages, this.state.page + 1)})}}>
@@ -173,11 +175,9 @@ class Gifcities extends Component {
                 {this.renderPaginator()}
                 <div className='content'>
                     {
-                        (this.state.query === '' || !this.state.query)
-                            ? <Typography className='no-results'>Try searching for something</Typography>
-                            : this.state.loading
-                                ? <Spinner/>
-                                : this.renderContent()
+                        this.state.loading
+                            ? <Spinner/>
+                            : (this.state.content.length > 0) ? this.renderContent() : <Typography className='no-results'>Try searching for something</Typography>
                     }
                 </div>
                 {this.renderPaginator()}

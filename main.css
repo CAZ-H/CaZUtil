@@ -53,21 +53,54 @@
 
 .page.gifcities .search {
   position: sticky;
+  width: 448px;
+  border-radius: 4px;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: fit-content;
   z-index: 5;
-  border-radius: 4px; }
+  background-color: rgba(0, 0, 0, 0.4); }
 
 .page.gifcities .content {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 200px; }
-  .page.gifcities .content .spinner, .page.gifcities .content .no-results {
-    margin: auto; }
+  line-height: 0;
+  column-gap: 4px;
+  column-count: 5;
+  min-height: 100vh; }
+  @media (max-width: 1200px) {
+    .page.gifcities .content {
+      column-count: 4; } }
+  @media (max-width: 1000px) {
+    .page.gifcities .content {
+      column-count: 3; } }
+  @media (max-width: 800px) {
+    .page.gifcities .content {
+      column-count: 2; } }
+  @media (max-width: 400px) {
+    .page.gifcities .content {
+      column-count: 1; } }
+  .page.gifcities .content .gifcard {
+    width: 100%;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid; }
+    .page.gifcities .content .gifcard img {
+      max-width: 75%; }
+  .page.gifcities .content .spinner {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 50%;
+    top: 50%; }
+  .page.gifcities .content .no-results {
+    position: absolute;
+    text-align: center;
+    width: 500px;
+    height: 100%;
+    left: calc(50% - 250px);
+    top: 50%; }
 
 .page.gifcities .paginator {
   text-align: center; }
+  .page.gifcities .paginator .page-display {
+    padding: 0 8px; }
   .page.gifcities .paginator > * {
     display: inline-block; }
 

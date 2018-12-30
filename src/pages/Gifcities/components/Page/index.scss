@@ -1,9 +1,9 @@
 .page.gifcities {
     .search {
         position: sticky;
-        width: 448px;
+        width: 400px;
         border-radius: 4px;
-        top: 0;
+        top: 8px;
         z-index: 5;
         background-color: rgba(0,0,0, 0.4);
     }
@@ -41,7 +41,7 @@
         .spinner {
             position: absolute;
             width: 0;
-            height: 100%;
+            height: 0;
             left: 50%;
             top: 50%;
         }
@@ -50,7 +50,7 @@
             position: absolute;
             text-align: center;
             width: 500px;
-            height: 100%;
+            height: 0;
             left: calc(50% - 250px);
             top: 50%;
         }

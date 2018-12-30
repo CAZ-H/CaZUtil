@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import { routeData } from 'constants/routes';
 import history from 'constants/history';
+
+const styles = theme => ({
+    root: {
+        'background-color': theme.palette.tertiary.main,
+        'border-bottom': '4px solid',
+        'border-bottom-color': theme.palette.tertiary.dark
+    }
+});
 
 class NavBar extends Component {
 
@@ -25,7 +34,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Tabs value={this.state.page} onChange={this.handleChange}>
+      <Tabs value={this.state.page} onChange={this.handleChange} textColor='primary' indicatorColor='primary' className={this.props.classes.root}>
           <Tab label="Home" value={routeData.HOME.path} />
           <Tab label="Gifcities" value={routeData.GIFCITIES.path} />
       </Tabs>
@@ -34,4 +43,4 @@ class NavBar extends Component {
 
 }
 
-export default NavBar;
+export default withStyles(styles)(NavBar);

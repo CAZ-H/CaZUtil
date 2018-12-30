@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 
-import HomeContainer from '../containers/HomeContainer'
-import GifcitiesContainer from '../containers/GifcitiesContainer'
+import Home from '../pages/Home/components/Page'
+import Gifcities from '../pages/Gifcities/components/Page'
 
 import config from 'constants/config';
 
@@ -10,13 +10,13 @@ const routeData = {
     HOME: {
         key: 'HOME',
         path: config.URL_ROOT + '/',
-        component: HomeContainer,
+        component: Home,
         exactPath: true
     },
     GIFCITIES: {
         key: 'GIFCITIES',
         path: config.URL_ROOT + '/gifcities',
-        component: GifcitiesContainer,
+        component: Gifcities,
         exactPath: false
     }
 };

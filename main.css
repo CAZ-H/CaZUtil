@@ -55,7 +55,7 @@
   position: sticky;
   width: 400px;
   border-radius: 4px;
-  top: 0;
+  top: 8px;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.4); }
 

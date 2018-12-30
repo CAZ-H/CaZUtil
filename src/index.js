@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Switch, HashRouter } from 'react-router-dom';
+import {Switch, Router, Route} from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
@@ -20,7 +20,7 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <HashRouter history={history}>
+  <Router history={history}>
       <MuiThemeProvider theme={theme}>
           <div className='app'>
               <NavBar/>
@@ -29,6 +29,6 @@ ReactDOM.render(
               </Switch>
           </div>
       </MuiThemeProvider>
-  </HashRouter>,
+  </Router>,
   document.getElementById('root')
 );

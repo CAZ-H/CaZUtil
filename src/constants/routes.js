@@ -4,18 +4,18 @@ import { Route } from 'react-router-dom'
 import HomeContainer from '../containers/HomeContainer'
 import GifcitiesContainer from '../containers/GifcitiesContainer'
 
-const URL_ROOT = '/CaZUtil/#';
+import config from 'constants/config';
 
 const routeData = {
     HOME: {
         key: 'HOME',
-        path: URL_ROOT + '/',
+        path: config.URL_ROOT + '/',
         component: HomeContainer,
         exactPath: true
     },
     GIFCITIES: {
         key: 'GIFCITIES',
-        path: URL_ROOT + '/gifcities',
+        path: config.URL_ROOT + '/gifcities',
         component: GifcitiesContainer,
         exactPath: false
     }
